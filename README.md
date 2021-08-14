@@ -17,13 +17,18 @@ Commands:
   export <path>
     Export 1Password opvault.
 
+  profiles <path>
+    Show all profiles in vault.
+
   version
     Show version.
 
-Run "main <command> --help" for more information on a command.
+Run "1password-opvault <command> --help" for more information on a command.
 ```
 
-Example usage with password prompt:
+### Export
+
+Export all items from 1Password vault. Example usage with password prompt:
 
 ```
 1password-opvault export /path/to/1Password.opvault/ --hide-passwords
@@ -41,9 +46,33 @@ Data is exported in the [JSON Lines](https://jsonlines.org/) format, which has t
 1password-opvault export /path/to/1Password.opvault/ --hide-passwords | grep -i "aws"
 ```
 
-Omit the `--hide-passwords` flag to show decrypted passwords.
+Options:
 
-Set the `ONEPASSWORD_OPVAULT_PASSWORD` environment variable to bypass the password prompt in non-interactive environments.
+- Flag `--hide-passwords` Hide decrypted passwords from output.
+- Flag `--profile` Specify the profile. Defaults to `default`.
+- Environment variable `ONEPASSWORD_OPVAULT_PASSWORD` Set to bypass the password prompt in non-interactive environments.
+
+### Profiles
+
+Show all profiles in 1Password vault. Shows one profile name per line. For example:
+
+```
+1password-opvault profiles /path/to/1Password.opvault/
+```
+```
+default
+```
+
+### Version
+
+Show version of 1password-opvault. For example:
+
+```
+1password-opvault profiles /path/to/1Password.opvault/
+```
+```
+1.1.0
+```
 
 ## Install
 
