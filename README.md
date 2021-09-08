@@ -68,7 +68,7 @@ default
 Show version of 1password-opvault. For example:
 
 ```
-1password-opvault profiles /path/to/1Password.opvault/
+1password-opvault version
 ```
 ```
 1.1.0
